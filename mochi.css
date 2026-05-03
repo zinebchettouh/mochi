@@ -1,0 +1,134 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --blush: #fce4ec; --petal: #f8bbd0; --rose: #f48fb1;
+  --deep-rose: #c2185b; --cream: #fff9fb;
+  --text-dark: #3d1a26; --text-mid: #7a3b52; --text-light: #b06080; --white: #ffffff;
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); min-height: 100vh; }
+
+/* NAV */
+nav {
+  background: var(--white); border-bottom: 1.5px solid var(--petal);
+  padding: 0 5%; display: flex; align-items: center; justify-content: space-between;
+  height: 68px; position: sticky; top: 0; z-index: 100;
+}
+.logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; color: var(--deep-rose); letter-spacing: 4px; }
+.logo span { font-style: italic; color: var(--rose); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--text-mid); letter-spacing: 1px; transition: color 0.2s; }
+.nav-links a:hover { color: var(--deep-rose); }
+.nav-cart { display: flex; align-items: center; gap: 6px; background: var(--deep-rose); color: white; border: none; padding: 10px 20px; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+.nav-cart:hover { background: #a0154d; }
+
+/* BANNER */
+.banner { background: var(--deep-rose); color: white; text-align: center; padding: 13px; font-size: 13px; letter-spacing: 1.5px; font-weight: 500; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #fce4ec 0%, #fff0f5 50%, #fce4ec 100%);
+  padding: 80px 5% 90px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; overflow: hidden;
+}
+.hero::before { content: ''; position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, #f48fb130 0%, transparent 70%); top: -100px; right: -100px; border-radius: 50%; }
+.hero-tag { display: inline-block; background: var(--petal); color: var(--deep-rose); font-size: 11px; font-weight: 500; letter-spacing: 2px; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; text-transform: uppercase; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 54px; line-height: 1.15; color: var(--text-dark); margin-bottom: 18px; }
+.hero h1 em { color: var(--deep-rose); font-style: italic; }
+.hero p { font-size: 16px; color: var(--text-mid); line-height: 1.7; max-width: 400px; margin-bottom: 36px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary { background: var(--deep-rose); color: white; border: none; padding: 14px 32px; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+.btn-primary:hover { background: #a0154d; transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--deep-rose); border: 1.5px solid var(--deep-rose); padding: 13px 30px; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+.btn-outline:hover { background: var(--blush); }
+
+/* HERO VISUAL */
+.hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
+.hero-blob { width: 340px; height: 340px; background: var(--white); border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(194,24,91,0.1); font-size: 130px; position: relative; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.badge-float { position: absolute; background: white; border-radius: 20px; padding: 10px 16px; box-shadow: 0 8px 24px rgba(194,24,91,0.12); font-size: 13px; font-weight: 500; color: var(--text-dark); }
+.badge-float.top-right { top: 20px; right: -20px; }
+.badge-float.bottom-left { bottom: 30px; left: -30px; }
+.badge-float span { color: var(--deep-rose); font-weight: 600; }
+
+/* SECTIONS */
+section { padding: 70px 5%; }
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-header h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: var(--text-dark); margin-bottom: 10px; }
+.section-header p { color: var(--text-light); font-size: 15px; }
+
+/* PRODUCTS */
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.product-card { background: var(--white); border-radius: 24px; overflow: hidden; border: 1.5px solid var(--petal); transition: all 0.25s; cursor: pointer; }
+.product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(194,24,91,0.1); }
+.product-img { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 80px; position: relative; }
+.product-badge { position: absolute; top: 14px; left: 14px; background: var(--deep-rose); color: white; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; }
+.product-info { padding: 20px; }
+.product-name { font-size: 16px; font-weight: 500; color: var(--text-dark); margin-bottom: 4px; }
+.product-origin { font-size: 12px; color: var(--text-light); margin-bottom: 14px; }
+.product-footer { display: flex; align-items: center; justify-content: space-between; }
+.product-price { font-size: 18px; font-weight: 600; color: var(--deep-rose); }
+.product-price span { font-size: 13px; font-weight: 400; color: var(--text-light); }
+.order-btn { background: var(--blush); border: none; border-radius: 30px; padding: 8px 18px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--deep-rose); cursor: pointer; transition: all 0.2s; }
+.order-btn:hover { background: var(--deep-rose); color: white; }
+
+/* WHY */
+.why { background: var(--blush); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.why-card { text-align: center; padding: 30px 20px; background: white; border-radius: 20px; }
+.why-icon { font-size: 36px; margin-bottom: 14px; }
+.why-card h3 { font-size: 16px; font-weight: 500; color: var(--text-dark); margin-bottom: 8px; }
+.why-card p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+/* FOOTER */
+footer { background: var(--text-dark); color: var(--petal); padding: 50px 5% 30px; text-align: center; }
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 600; letter-spacing: 5px; color: var(--rose); margin-bottom: 12px; }
+.footer-tagline { font-size: 14px; color: var(--text-light); margin-bottom: 28px; }
+.footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
+.footer-links a { color: var(--petal); text-decoration: none; font-size: 13px; opacity: 0.8; transition: opacity 0.2s; }
+.footer-links a:hover { opacity: 1; }
+.footer-bottom { border-top: 1px solid #5a2438; padding-top: 20px; font-size: 12px; color: var(--text-light); }
+
+/* MODAL */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(61,26,38,0.5); z-index: 999; align-items: center; justify-content: center; padding: 20px; }
+.modal-overlay.active { display: flex; }
+.modal { background: var(--white); border-radius: 28px; padding: 40px; max-width: 480px; width: 100%; position: relative; box-shadow: 0 30px 80px rgba(194,24,91,0.2); animation: popIn 0.3s ease; max-height: 90vh; overflow-y: auto; }
+@keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.modal-close { position: absolute; top: 16px; right: 20px; background: var(--blush); border: none; border-radius: 50%; width: 34px; height: 34px; font-size: 18px; color: var(--deep-rose); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.modal-close:hover { background: var(--petal); }
+.modal-product-preview { display: flex; align-items: center; gap: 14px; background: var(--blush); border-radius: 16px; padding: 14px 18px; margin-bottom: 28px; }
+.modal-emoji { font-size: 40px; }
+.modal-product-name { font-size: 15px; font-weight: 500; color: var(--text-dark); }
+.modal-product-price { font-size: 16px; font-weight: 600; color: var(--deep-rose); }
+.modal h2 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--text-dark); margin-bottom: 6px; }
+.modal-subtitle { font-size: 14px; color: var(--text-light); margin-bottom: 24px; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--text-mid); margin-bottom: 6px; }
+.form-group input,
+.form-group textarea,
+.form-group select { width: 100%; padding: 12px 16px; border: 1.5px solid var(--petal); border-radius: 14px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-dark); background: var(--cream); outline: none; transition: border 0.2s; }
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus { border-color: var(--rose); }
+.form-group textarea { resize: vertical; min-height: 80px; }
+.submit-btn { width: 100%; background: var(--deep-rose); color: white; border: none; padding: 16px; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500; cursor: pointer; transition: all 0.2s; margin-top: 8px; }
+.submit-btn:hover { background: #a0154d; transform: translateY(-1px); }
+
+/* SUCCESS */
+.success-screen { display: none; text-align: center; padding: 20px 0; }
+.success-screen.active { display: block; }
+.success-icon { font-size: 64px; margin-bottom: 16px; }
+.success-screen h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--text-dark); margin-bottom: 10px; }
+.success-screen p { font-size: 14px; color: var(--text-mid); line-height: 1.6; margin-bottom: 24px; }
+.success-close { background: var(--deep-rose); color: white; border: none; padding: 12px 32px; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-size: 15px; cursor: pointer; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; padding: 50px 5% 60px; }
+  .hero h1 { font-size: 36px; }
+  .hero-visual { display: none; }
+  .product-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .modal { padding: 28px 20px; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 30px; }
+}
